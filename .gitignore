@@ -1,0 +1,8 @@
+/node_modules
+
+# VitePress 缓存和输出目录
+
+/docs/.vitepress/dist/
+/docs/.vitepress/cache/
+
+

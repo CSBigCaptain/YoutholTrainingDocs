@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "docs:dev": "vitepress dev YoutholTrainingDocs --host",
+    "docs:build": "vitepress build YoutholTrainingDocs",
+    "docs:preview": "vitepress preview YoutholTrainingDocs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.3.4"
+  }
+}
