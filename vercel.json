@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/me",
+      "destination": "/YoutholTrainingDocs",
+      "permanent": true
+    }
+  ]
+}
