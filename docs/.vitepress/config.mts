@@ -6,6 +6,7 @@ export default defineConfig({
   title: "神秘的干货屋",
   description: "Training plan in Youthol",
   lastUpdated: true,
+  base: "/YoutholTrainingDocs/",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
