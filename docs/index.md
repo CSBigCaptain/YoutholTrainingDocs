@@ -8,18 +8,17 @@ hero:
   tagline: My great project tagline
   actions:
     - theme: brand
-      text: Training Plan
+      text: 开始学习
       link: /training-plan/
     - theme: alt
-      text: Advanced Skills
+      text: 更多技巧
       link: /advanced-tech/
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: What's youthol?
+    details: Youthol is the best student org in sdut.
   - title: Feature B
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-

@@ -33,8 +33,8 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: "JavaScript", link: "/training-plan/5-javascript" },
-            { text: "Node.js", link: "/training-plan/7-node" },
-            { text: "Vue.js", link: "/training-plan/8-vue" },
+            { text: "Vue.js", link: "/training-plan/6-vue" },
+            { text: "Node.js & Vite", link: "/training-plan/7-node" },
           ],
         },
         {
@@ -73,14 +73,22 @@ export default defineConfig({
     
     footer: {
       message: 'Released under the MIT Licence.',
-      copyright: 'Copyright © 2019 Youthol. All rights reserved.',
+      copyright: 'Copyright © 2024 Youthol. All rights reserved.',
     },
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/vuejs/vitepress" },
+      { icon: "github", link: "https://github.com/CSBigCaptain/YoutholTrainingDocs" },
     ],
     search: {
       provider: "local",
     },
+    editLink: {
+      pattern: 'https://github.com/CSBigCaptain/YoutholTrainingDocs/edit/main/docs/:path'
+    }
   },
+    markdown: {
+      image: {
+        lazyLoading: true,
+      }
+    },
 })
