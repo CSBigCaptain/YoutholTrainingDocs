@@ -311,8 +311,6 @@ break 不仅可以中断循环，也可以直接中断代码块，但是 continu
 
 **HTML DOM** 模型被构造为**对象**的树：
 
-![DOM HTML tree](./新媒体技术部第六次培训——Node.assets/pic_htmltree.gif)
-
 通过可编程的对象模型，JavaScript 获得了足够的能力来创建动态的 HTML。
 
 - JavaScript 能够改变页面中的所有 HTML 元素
