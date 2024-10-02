@@ -1,14 +1,17 @@
- # Introduction to CSS
+# CSS 入门知识
 
- if **html格式 ** It is the flesh and blood of the whole web page, so **css公司 ** It is the skin bag of the whole web page, which can make our web page more beautiful.
+如果说 **html** 是整个网页的骨肉，那么 **css** 就是整个网页的皮囊，可以让我们的网页更好看。
 
- - Css is responsible for the presentation of the external style, color, layout, etc. of the web page.
- - The css file suffix is `.css文件 `
- - In addition, css is also called cascading style sheet, because a complete web page is formed by layering, which is the origin of the word &#34;cascading&#34;.
- ---
- # How CSS is used
- one Inline style (generally not recommended)
- -
+- css负责包括网页的外在样式、颜色、布局等的表现。
+- css文件后缀是 `.css`
+- 此外css又叫层叠样式表，因为一个完整的网页是一层层堆叠形成的，这就是层叠两个字的由来。
+
+---
+
+# CSS如何使用
+
+1. 内联样式（一般不推荐使用）
+
 
 
 
