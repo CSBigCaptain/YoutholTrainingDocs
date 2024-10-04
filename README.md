@@ -1,19 +1,24 @@
 ### 文件结构
 ```python
-docs/
-│—— advanced-tech/
-│       │—— index.md
-│       └── effective-edit-html.md
-│—— training-plan/
-│       │—— 1-basic.md
-│       │—— 2-html.md
-│       │—— 3-basic-css.md
-│       │—— 4-advanced-css.md
-│       │—— 5-javascript.md
-│       │—— Django.md # Django培训计划
-│       │—— index.md
-│       └── assets/
-└── index.md
+docs
+|-- advanced-tech
+|   |-- effective-edit-html.md
+|   `-- index.md
+|-- editor-guide.md
+|-- index.md
+`-- training-plan
+    |-- 1-basic.md
+    |-- 2-html.md
+    |-- 3-basic-css.md
+    |-- 4-advanced-css.md
+    |-- 5-javascript.md
+    |-- Django.md
+    |-- assets
+    |   `-- 1
+    |       |-- extensions-in-vscode.png
+    |       `-- vscode-download-page.png
+    `-- index.md
 
-# 你们注释一下都是干啥用的吧
+
+# 还是把文件目录的介绍写在下面吧，毕竟文件目录随时会更新
 ```

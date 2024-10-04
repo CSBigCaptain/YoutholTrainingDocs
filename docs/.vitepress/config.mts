@@ -13,6 +13,7 @@ export default defineConfig({
       { text: "主页", link: "/" },
       { text: "训练计划", link: "/training-plan/" },
       { text: "高级技巧", link: "/advanced-tech/" },
+      { text: "编辑指南", link: "editor-guide" },
     ],
 
     sidebar: {

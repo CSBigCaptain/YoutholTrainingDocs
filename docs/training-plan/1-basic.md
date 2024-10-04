@@ -8,7 +8,7 @@
 
 一般建议去 Visual Studio Code （以下简称 VSC）的[官方网站](https://code.visualstudio.com/Download)去下载安装，若因为网络环境问题无法访问，可以去 [Microsoft Store](https://apps.microsoft.com/store/detail/XP9KHM4BK9FZ7Q?ocid=pdpshare) 中安装。
 
-![VSC下载页面](./assets/1/image1.png)
+![VSC下载页面](./assets/1/vscode-download-page.png)
 
 :::warning
 在安装时请注意当前电脑的操作系统，并注意区分版本：
@@ -22,7 +22,7 @@
 
 VSC 安装扩展比较简单，在最左边找到 `Extensions` 一栏，就可以安装和管理安装的扩展了。
 
-![VSC插件栏](./assets/1/image2.png)
+![VSC插件栏](./assets/1/extensions-in-vscode.png)
 
 下面推荐几个提高编码 & 生产效率的 VSC 扩展：
 
