@@ -81,3 +81,14 @@ Project
 在这个文件结构中，倘若我要在 `index.html` 中引入一张图片 `img1.png` ，我应该用 `./assets/img/img1.png` 来表示它的位置；那我要在 `public.less` 中引入这张图片的话，就是 `../img/img1.png` 。
 
 另外在 Web 开发时也会直接用相对于项目根目录的相对路径来表示文件位置，例如也可以用 `/assets/img/img1/png` 来表示这个图片的位置，这种表示方法事实上是最常用的。
+
+## 培训中常用的资源网站
+
+### 文档类
+
+- [菜鸟教程](https://www.runoob.com/)
+- [Vue.js 官方文档](https://cn.vuejs.org)
+- [Django 官方中文文档](https://docs.djangoproject.com/zh-hans/5.1/)
+
+
+
