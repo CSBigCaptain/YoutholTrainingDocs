@@ -126,11 +126,10 @@ a:active {
   color: #0000FF;
 }
 ```
-::: 注意：
-a:hover 必须在 CSS 定义中的 a:link 和 a:visited 之后，才能生效！（当你定义了link和visited时，若没定义也可以不用管）
-a:active 必须在 CSS 定义中的 a:hover 之后才能生效！伪类名称对大小写不敏感。
-这里所谓之后，是指前后关系。
-:::
+> 注意：
+> a:hover 必须在 CSS 定义中的 a:link 和 a:visited 之后，才能生效！（当你定义了link和visited时，若没定义也可以不用管）
+> a:active 必须在 CSS 定义中的 a:hover 之后才能生效！伪类名称对大小写不敏感。
+> 这里所谓之后，是指前后关系。
 
 更多详细的选择器还有更多包括选择含有那些属性的，选择能产生变化的，等等等等等
 可以前往[more](https://www.w3school.com.cn/css/css_selectors.asp)学习更多进阶选择器
