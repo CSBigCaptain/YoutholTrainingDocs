@@ -35,7 +35,7 @@ html
 
 css
 .top{
-    background-color: rgb(256,256,256,0.5);
+    background-color: rgba(256,256,256,0.5);
 }
 .one.aaa{
     coloe: wight;
@@ -126,7 +126,7 @@ a:active {
   color: #0000FF;
 }
 ```
-::: TIP
+::: tip
 a:hover 必须在 CSS 定义中的 a:link 和 a:visited 之后，才能生效！（当你定义了link和visited时，若没定义也可以不用管）
 a:active 必须在 CSS 定义中的 a:hover 之后才能生效！伪类名称对大小写不敏感。
 这里所谓之后，是指前后关系。
@@ -336,9 +336,10 @@ ul {
   padding: 0;
 }
 ```
-> 例子解释：
-> list-style-type: none; - 删除项目符号。导航条不需要列表项标记。
-> 设置 margin: 0; 和 padding: 0; 删除浏览器的默认设置。
+::: warning
+ list-style-type: none; - 删除项目符号。导航条不需要列表项标记。
+ 设置 margin: 0; 和 padding: 0; 删除浏览器的默认设置。
+:::
 
 ### 垂直导航栏
 如需构建垂直导航栏，除了上述的代码外，还可以在列表中设置 \<a> 元素的样式：
