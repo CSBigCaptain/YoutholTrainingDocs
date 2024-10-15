@@ -404,3 +404,110 @@ li a {
 水平导航栏与垂直导航栏的主要区别也就只有布局的不同，这里不再重复赘述。
 
 ## 高阶知识 <Badge type="danger">较难</Badge>
+### CSS动画
+CSS 可实现 HTML 元素的动画效果，而不使用 JavaScript 或 Flash
+在本章中，您将学习如下属性：
+
+- @keyframes
+- animation-name
+- animation-duration
+- animation-delay
+- animation-iteration-count
+- animation-direction
+- animation-timing-function
+- animation-fill-mode
+- animation
+
+### 什么是CSS动画？
+动画使元素逐渐从一种样式变为另一种样式。
+您可以随意更改任意数量的 ***CSS*** 属性。
+如需使用 ***CSS*** 动画，您必须首先为动画指定一些关键帧。
+关键帧包含元素在特定时间所拥有的样式。
+
+### @keyframes 规则
+如果您在 `@keyframes` 规则中指定了 CSS 样式，动画将在特定时间逐渐从当前样式更改为新样式。
+要使动画生效，必须将动画绑定到某个元素。
+下面的例子将 "example" 动画绑定到 <div> 元素。动画将持续 4 秒钟，同时将 <div> 元素的背景颜色从 "red" 逐渐改为 "yellow"：
+```css
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+/* 向此元素应用动画效果 */
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+```
+::: warning
+`animation-duration` 属性定义需要多长时间才能完成动画。如果未指定 `animation-duration` 属性，则动画不会发生，因为默认值是 0s（0秒）。
+:::
+
+在上面的例子中，通过使用关键字 "`from`" 和 "`to`"（代表 0％（开始）和 100％（完成）），我们设置了样式何时改变。
+您也可以使用百分比值。通过使用百分比，您可以根据需要添加任意多个样式更改。
+下面的例子将在动画完成 25％，完成 50％ 以及动画完成 100％ 时更改 <div> 元素的背景颜色：
+```css
+@keyframes example {
+  0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}
+
+/* 应用动画的元素 */
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+```
+下面的例子将在动画完成 25％，完成 50％ 以及动画完成 100％ 时更改背景颜色和 <div> 元素的位置：
+```css
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
+
+/* 应用动画的元素 */
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+```
+### 延迟动画
+`animation-delay` 属性规定动画开始的延迟时间。
+下面的例子在开始动画前有 2 秒的延迟：
+```css
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-delay: 2s;
+}
+```
+负值也是允许的。如果使用负值，则动画将开始播放，如同已播放 N 秒。
+在下面的例子中，动画将开始播放，就好像它已经播放了 2 秒钟一样：
+```css
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-delay: -2s;
+}
+```
