@@ -427,7 +427,7 @@ CSS 可实现 HTML 元素的动画效果，而不使用 JavaScript 或 Flash
 ### @keyframes 规则
 如果您在 `@keyframes` 规则中指定了 CSS 样式，动画将在特定时间逐渐从当前样式更改为新样式。
 要使动画生效，必须将动画绑定到某个元素。
-下面的例子将 "example" 动画绑定到 <div> 元素。动画将持续 4 秒钟，同时将 <div> 元素的背景颜色从 "red" 逐渐改为 "yellow"：
+下面的例子将 "example" 动画绑定到 \<div> 元素。动画将持续 4 秒钟，同时将 \<div> 元素的背景颜色从 "red" 逐渐改为 "yellow"：
 ```css
 @keyframes example {
   from {background-color: red;}
@@ -448,7 +448,7 @@ div {
 
 在上面的例子中，通过使用关键字 "`from`" 和 "`to`"（代表 0％（开始）和 100％（完成）），我们设置了样式何时改变。
 您也可以使用百分比值。通过使用百分比，您可以根据需要添加任意多个样式更改。
-下面的例子将在动画完成 25％，完成 50％ 以及动画完成 100％ 时更改 <div> 元素的背景颜色：
+下面的例子将在动画完成 25％，完成 50％ 以及动画完成 100％ 时更改 \<div> 元素的背景颜色：
 ```css
 @keyframes example {
   0%   {background-color: red;}
@@ -465,7 +465,7 @@ div {
   animation-name: example;
   animation-duration: 4s;
 ```
-下面的例子将在动画完成 25％，完成 50％ 以及动画完成 100％ 时更改背景颜色和 <div> 元素的位置：
+下面的例子将在动画完成 25％，完成 50％ 以及动画完成 100％ 时更改背景颜色和 \<div> 元素的位置：
 ```css
 @keyframes example {
   0%   {background-color:red; left:0px; top:0px;}
