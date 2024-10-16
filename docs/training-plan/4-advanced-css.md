@@ -511,3 +511,152 @@ div {
   animation-delay: -2s;
 }
 ```
+### 设置动画运行多少次
+`animation-iteration-count` 属性指定动画应运行的次数。
+下面的例子在停止前把动画运行了三次：
+```css
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: 3;
+}
+```
+下面的例子使用值“**infinite**”使动画永远持续下去：
+```css
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+```
+
+### 反向或交替运行动画
+`animation-direction` 属性指定向前，向后或者交替播放动画。
+`animation-direction` 属性可以接受以下值：
+
+- normal － 动画正常播放（向前），默认值
+- reverse － 动画以反方向播放（向后）
+- alternate － 动画先向前再向后
+- alternate-reverse － 动画先向后再向前
+
+下面例子将以相反的方式运行动画：
+```css
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-direction: reverse;
+}
+```
+你也可以在上面的例子中使用其他值来尝试效果。
+
+### 指定动画的速度曲线
+`animation-timing-function` 属性规定动画的速度曲线。
+`animation-timing-function` 属性可接受以下值：
+
+- ease - 指定从慢速开始，然后加快，然后缓慢结束的动画（默认）
+- linear - 规定从开始到结束的速度相同的动画
+- ease-in - 规定慢速开始的动画
+- ease-out - 规定慢速结束的动画
+- ease-in-out - 指定开始和结束较慢的动画
+- cubic-bezier(n,n,n,n) - 运行您在三次贝塞尔函数中定义自己的值
+下面这些例子展示了可以使用的一些不同速度曲线：
+```css
+#div1 {animation-timing-function: linear;}
+#div2 {animation-timing-function: ease;}
+#div3 {animation-timing-function: ease-in;}
+#div4 {animation-timing-function: ease-out;}
+#div5 {animation-timing-function: ease-in-out;}
+}
+```
+
+### 指定动画的填充样式
+CSS 动画不会在第一个关键帧播放之前或在最后一个关键帧播放之后影响元素。`animation-fill-mode` 属性能够覆盖这种行为。
+在不播放动画时（在开始之前，结束之后，或两者都结束时），`animation-fill-mode` 属性规定目标元素的样式。
+`animation-fill-mode` 属性可接受以下值：
+- none - 默认值。动画在执行之前或之后不会对元素应用任何样式。
+- forwards - 元素将保留由最后一个关键帧设置的样式值（依赖 animation-direction 和 animation-iteration-count）。
+- backwards - 元素将获取由第一个关键帧设置的样式值（取决于 animation-direction），并在动画延迟期间保留该值。
+- both - 动画会同时遵循向前和向后的规则，从而在两个方向上扩展动画属性。
+下面的例子让 \<div> 元素在动画结束时保留来自最后一个关键帧的样式值：
+```css
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+```
+下面的例子在动画开始之前（在动画延迟期间）使 \<div> 元素获得由第一个关键帧设置的样式值：
+```css
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-fill-mode: backwards;
+}
+```
+下面的例子在动画开始之前使 \<div> 元素获得第一个关键帧设置的样式值，以及在动画结束时保留最后一个关键帧的样式值：
+```css
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-fill-mode: both;
+}
+```
+
+### 动画的简写属性
+下面展示六种动画属性：
+```css
+div {
+  animation-name: example;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+```
+使用简写的动画属性也可以实现与上述例子相同的动画效果：
+```css
+div {
+  animation: example 5s linear 2s infinite alternate;
+}
+```
+### CSS动画属性
+下表列出了 **@keyframes** 规则和所有 **CSS** 动画属性：
+|属性|描述|
+|-|-|
+|[@keyframes](https://www.w3school.com.cn/cssref/pr_keyframes.asp)|规定动画样式|
+|[animation](https://www.w3school.com.cn/cssref/pr_animation.asp)|设置所有动画属性的简写属性|
+|[animation-delay](https://www.w3school.com.cn/cssref/pr_animation-delay.asp)|规定动画开始的延迟|
+|[animation-direction](https://www.w3school.com.cn/cssref/pr_animation-direction.asp)|规定动画是向前播放、向后播放还是交替播放|
+|[animation-duration](https://www.w3school.com.cn/cssref/pr_animation-duration.asp)|规定动画完成一个周期应花费的时间|
+|[animation-fill-mode](https://www.w3school.com.cn/cssref/pr_animation-fill-mode.asp)|规定元素在不播放动画时的样式（在开始前、结束后，或两者同时）|
+|[animation-iteration-count](https://www.w3school.com.cn/cssref/pr_animation-iteration-count.asp)|规定动画应播放的次数|
+|[animation-name](https://www.w3school.com.cn/cssref/pr_animation-name.asp)|规定 @keyframes 动画的名称|
+|[animation-play-state](https://www.w3school.com.cn/cssref/pr_animation-play-state.asp)|规定动画是运行还是暂停|
+|[animation-timing-function](https://www.w3school.com.cn/cssref/pr_animation-timing-function.asp)|规定动画的速度曲线|
