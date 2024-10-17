@@ -1,5 +1,5 @@
 ### 文件结构
-```python
+```
 docs
 |-- advanced-tech
 |   |-- effective-edit-html.md
