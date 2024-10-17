@@ -94,9 +94,10 @@ Project
 
 ### 文档类
 
+- [w3school](https://www.w3school.com.cn/)
 - [菜鸟教程](https://www.runoob.com/)
 - [Vue.js 官方文档](https://cn.vuejs.org)
 - [Django 官方中文文档](https://docs.djangoproject.com/zh-hans/5.1/)
-
+- [mdn](https://developer.mozilla.org/zh-CN/docs/Web)
 
 
