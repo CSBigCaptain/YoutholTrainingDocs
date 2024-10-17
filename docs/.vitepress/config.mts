@@ -67,6 +67,10 @@ export default defineConfig({
               text: "提高编写HTML代码效率的小技巧",
               link: "/advanced-tech/effective-edit-html",
             },
+            {
+              text: "Markdown 基本语法",
+              link: "/advanced-tech/markdown.md"
+            }
           ],
         },
       ],
