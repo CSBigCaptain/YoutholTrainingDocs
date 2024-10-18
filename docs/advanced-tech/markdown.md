@@ -14,12 +14,14 @@ Markdown 是一种轻量级的标记语言，可用于在纯文本文档中添�
 
 ### 标题
 
-\# 一级标题  
-\#\# 二级标题  
-\#\#\# 三级标题  
-\#\#\#\# 四级标题  
-\#\#\#\#\# 五级标题  
-\#\#\#\#\#\# 六级标题
+```
+# 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
+```
 
 请注意，`#` 和标题之间要以空格分隔
 
@@ -43,7 +45,103 @@ Markdown 是一种轻量级的标记语言，可用于在纯文本文档中添�
 | 我是 `_下划线斜体_`         | 我是 _下划线斜体_     |
 | 我是 `***星号加粗下划线***` | 我是 **_星号下划线_** |
 
-### 
+### 引用语法
+
+```
+> Dorothy followed her through many of the beautiful rooms in her castle.
+```  
+
+实际效果
+> Dorothy followed her through many of the beautiful rooms in her castle.
+
+嵌套应用
+
+```
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+>> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+```
+
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+>> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+
+### 列表语法
+
+**有序列表（注意数字后面存在空格）**
+
+```
+1. First item
+2. Second item
+3. Third item
+4. Fourth item
+```
+
+示例：
+1. First item
+2. Second item
+3. Third item
+4. Fourth item
+
+
+**无序列表（相应符号后面存在空格）**
+
+创建无序列表，请在每个列表项前面添加破折号 (-)、星号 (*) 或加号 (+) 。缩进一个或多个列表项可创建嵌套列表。
+```
+- First item
+- Second item
+- Third item
+- Fourth item
+```
+
+示例：
+- First item
+- Second item
+- Third item
+- Fourth item
+
+要在保留列表连续性的同时在列表中添加另一种元素，请将该元素缩进四个空格或一个制表符。如下所示
+```
+*   This is the first list item.
+*   Here's the second list item.
+
+    I need to add another paragraph below the second list item.
+
+*   And here's the third list item.
+```
+
+*   This is the first list item.
+*   Here's the second list item.
+
+    I need to add another paragraph below the second list item.
+
+*   And here's the third list item.
+
+### 代码语法
+
+要将单词或短语表示为代码，请将其包裹在反引号 (` `` `) 中。代码块可以使用 ` ``` ` 包裹，在后面可以添加语言（如果有的话）。
+
+```
+At the command prompt, type `nano`.
+```
+
+At the command prompt, type `nano`.
+
+
+### 链接&&图片语法
+
+```
+这是一个链接 [Markdown语法](https://markdown.com.cn "最好的markdown教程")。
+```
+
+这是一个链接 [Markdown语法](https://markdown.com.cn "最好的markdown教程")。
+
+```
+![这是图片](/assets/img/philly-magic-garden.jpg "Magic Gardens")
+```
+
+![这是图片](https://markdown.com.cn/assets/img/philly-magic-garden.9c0b4415.jpg "Magic Gardens")
+
 
 ## 参考网站
 
