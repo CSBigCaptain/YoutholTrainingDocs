@@ -442,7 +442,6 @@ HTML 语义化是指在网页结构中使用具有语义意义的标签，以使
 
 [参考链接](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element)
 
-
 注意：本部分知识稍有难度，可根据自身情况选择学习。
 
 MDN Web Docs 中的 HTML 元素介绍：https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element ；
