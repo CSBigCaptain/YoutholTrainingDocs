@@ -53,13 +53,11 @@
 2.  属性的名称，并接上一个等号。
 3.  由引号所包围的属性值。
 
-::: tip
-不包含 ASCII 空格（以及 `"` `'` `=` `<` `>` 和飘号）的简单属性值可以不使用引号，但是建议将所有属性值用引号括起来，这样的代码一致性更佳，更易于阅读。
-:::
+> [!NOTE]
+> 不包含 ASCII 空格（以及 `"` `'` `=` `<` `>` 和飘号）的简单属性值可以不使用引号，但是建议将所有属性值用引号括起来，这样的代码一致性更佳，更易于阅读。
 
-::: warning 划重点：
-上述 `<img />` 标签并没有结束标签，HTML 中有一些元素无需结束标签，此类标签我们会称其为**自闭合标签**，因为这个元素里没有内容。
-:::
+> [!IMPORTANT]
+> 上述 `<img />` 标签并没有结束标签，HTML 中有一些元素无需结束标签，此类标签我们会称其为**自闭合标签**，因为这个元素里没有内容。
 
 ### 元素的嵌套
 
@@ -116,7 +114,7 @@
 那就略过他们吧，他们对于初学者来说可能是无关紧要的（因为你觉得它很枯燥，事实上，作为编者的我也这么觉得）
 :::
 
-## 常用HTML标签
+## 常用 HTML 标签
 
 ### 图片
 
@@ -134,7 +132,7 @@
 2.  有些错误使图像无法显示。可以试着故意将 `src` 属性里的路径改错。保存并刷新页面就可以在图像位置看到 `alt` 属性的内容。
 3.  `alt` 属性的关键字即“描述文本”。`alt` 文本应向用户完整地传递图像要表达的意思。用 "测试图片" 来描述 图片内容并不合适，应该修改成更好的描述。
 
-### [标题（Heading）](https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/HTML_basics#标题（heading）)
+### 标题（Heading）
 
 标题元素可用于指定内容的标题和子标题。就像一本书的书名、每章的大标题、小标题，等。HTML 文档也是一样。HTML 包括六个级别的标题，一般最多用到 3-4 级标题。
 
@@ -145,11 +143,12 @@
 <h4>次子标题</h4>
 ```
 
-::: danger
-你可以看到第一级标题是有隐式的主题样式。不要使用标题元素来加大、加粗字体，因为标题对于 [无障碍访问](https://developer.mozilla.org/zh-CN/docs/Learn/Accessibility) 和 [搜索引擎优化](https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals#为什么我们需要结构化？) 等问题非常有意义。要保持页面结构清晰，标题整洁，不要发生标题级别跳跃。
-:::
+> [!CAUTION]
+>你可以看到第一级标题是有隐式的主题样式。不要使用标题元素来加大、加粗字体，因为标题对于 [无障碍访问](https://developer.mozilla.org/zh-CN/docs/Learn/Accessibility) 和 [搜索引擎优化](https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals#为什么我们需要结构化？) 等问题非常有意义。要保持页面结构清晰，标题整洁，不要发生标题级别跳跃。
 
-### [段落（Paragraph）](https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/HTML_basics#段落（paragraph）)
+> 参考链接：https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/HTML_basics#标题（heading）
+
+### 段落（Paragraph）
 
 如上文所讲，[`<p>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p) 元素是用来指定段落的。通常用于指定常规的文本内容：
 
@@ -157,7 +156,9 @@
 <p>这是一个段落</p>
 ```
 
-### [列表（List）](https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/HTML_basics#列表（list）)
+> 参考链接：https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/HTML_basics#段落（paragraph）
+
+### 列表（List）
 
 Web 上的许多内容都是列表，HTML 有一些特别的列表元素。标记列表通常包括至少两个元素。最常用的列表类型为：
 
@@ -189,26 +190,25 @@ Web 上的许多内容都是列表，HTML 有一些特别的列表元素。标�
 <p>working together…</p>
 ```
 
-### [链接](https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/HTML_basics#链接)
+> 参考链接：https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/HTML_basics#列表（list）
 
-链接非常重要 — 它们赋予 Web 网络属性。要植入一个链接，我们需要使用一个简单的元素 [`<a>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a) — a 是 "anchor" （锚）的缩写。要将一些文本添加到链接中，只需如下几步：
+### 链接
+
+链接非常重要 —— 它们赋予 Web 网络属性。要植入一个链接，我们需要使用一个简单的元素 [`<a>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a) —— a 是 "anchor" （锚）的缩写。要将一些文本添加到链接中，只需如下几步：
 
 1.  选择一些文本。比如“Mozilla Manifesto”。
 
 2.  将文本包含在 `<a>` 元素内，就像这样：
-
     ```html
     <a>Mozilla Manifesto</a>
     ```
 
 3.  为此 `<a>` 元素添加一个 `href` 属性，就像这样：
-    
     ```html
     <a href="">Mozilla Manifesto</a>
     ```
 
 4.  把属性的值设置为所需网址：
-
     ```html
     <a href="https://www.mozilla.org/zh-CN/about/manifesto/"
       >Mozilla Manifesto</a
@@ -217,16 +217,25 @@ Web 上的许多内容都是列表，HTML 有一些特别的列表元素。标�
 
 如果网址开始部分省略了 `https://` 或者 `http://`，可能会得到错误的结果。在完成一个链接后，可以试着点击它来确保指向正确。
 
-::: info
-`href` 这个名字可能开始看起来有点令人费解，代表超文本引用（ **H**ypertext **Ref**erence）。
+> [!TIP]
+> `href` 这个名字可能开始看起来有点令人费解，代表超文本引用（ **H**ypertext **Ref**erence）。
+
+> 参考链接：https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/HTML_basics#链接
+
+## 行内元素和块级元素
+
+HTML 中的元素可以根据其显示特性分为 **行内元素**（Inline Elements）和 **块级元素**（Block Elements）。这两者的主要区别在于它们的显示方式和布局行为。下面详细介绍行内元素和块元素的区别以及常见的元素类型。
+
+::: info 温馨提示
+本部分内容篇幅稍长，但难度不高，请耐心阅读。
 :::
-## 行内元素（inline elements）和 块级元素（block elements）
-HTML 中的元素可以根据其显示特性分为 **行内元素**（inline elements）和 **块级元素**（block elements）。这两者的主要区别在于它们的显示方式和布局行为。下面详细介绍行内元素和块元素的区别以及常见的元素类型。
 
 ### 一、行内元素（Inline Elements）
+
 **行内元素**不会独占一行，它们与其他元素可以在同一行内显示。行内元素的宽度通常取决于其内容，并且无法设置宽度和高度，也即它的宽度由内容决定，无法通过 `width` 或 `height` 属性来调整其大小。常见的行内元素通常用于包含少量的文本或嵌入其他内容。
 
 #### 常见的行内元素：
+
 - `<a>`：超链接
 - `<span>`：行内容器，通常用于样式或行为的作用范围
 - `<strong>`：加粗文本
@@ -236,6 +245,7 @@ HTML 中的元素可以根据其显示特性分为 **行内元素**（inline ele
 - `<code>`：代码片段
 
 #### 示例：
+
 ```html
 <p>这是一个段落，其中包含<a href="#">超链接</a>和<span style="color: red;">红色文本</span>。</p>
 ```
@@ -243,9 +253,11 @@ HTML 中的元素可以根据其显示特性分为 **行内元素**（inline ele
 在上述示例中，`<a>` 和 `<span>` 元素与段落文字在同一行中显示，不会自动换行。
 
 ### 二、块级元素（Block Elements）
+
 **块级元素**在页面上表现为一个块，它们会自动换行并独占一行。块级元素的宽度通常默认占满父容器的全部宽度，可以通过 CSS 自由设置高度和宽度，可以使用 CSS 来设置块级元素的 `width` 和 `height`。块级元素适合用于布局大段内容或具有独立含义的结构化内容。
 
 #### 常见的块级元素：
+
 - `<div>`：通用容器，用于组织和布局页面结构
 - `<p>`：段落
 - `<h1>` 到 `<h6>`：标题
@@ -257,6 +269,7 @@ HTML 中的元素可以根据其显示特性分为 **行内元素**（inline ele
 - `<article>`：独立的内容块，如文章或博客文章
 
 #### 示例：
+
 ```html
 <div>
   <h1>这是标题</h1>
@@ -277,33 +290,38 @@ HTML 中的元素可以根据其显示特性分为 **行内元素**（inline ele
 | **常见用途**           | 包含文字、链接、小图标等                | 布局、段落、容器、列表等                |
 
 ### 四、行内元素与块级元素的转换
+
 有时，开发者需要改变元素的显示特性，CSS 中的 `display` 属性允许我们将行内元素转化为块级元素，或者将块级元素转化为行内元素。
 
-- **将行内元素变为块级元素**：
-  使用 `display: block` 可以将行内元素显示为块级元素。
+- **将行内元素变为块级元素**：使用 `display: block` 可以将行内元素显示为块级元素。
+
   ```html
   <a href="#" style="display: block;">这是一个块级链接</a>
   ```
 
-- **将块级元素变为行内元素**：
-  使用 `display: inline` 可以将块级元素显示为行内元素。
+- **将块级元素变为行内元素**：使用 `display: inline` 可以将块级元素显示为行内元素。
+
   ```html
   <div style="display: inline;">这是一个行内的 div</div>
   ```
 
 ### 五、行内块元素（Inline-block Elements）
+
 行内块元素是一种介于行内元素和块级元素之间的显示方式，它们既可以像行内元素一样在同一行内显示，又可以像块级元素一样设置宽度和高度。
 
 #### 特点：
+
 1. **不换行**：行内块元素不会独占一行，可以与其他元素在同一行显示。
 2. **可设置宽高**：可以通过 CSS 设置其 `width` 和 `height`。
   
 #### 常见的行内块元素：
+
 - `<img>`：图片
 - `<input>`：表单输入框
 - `<button>`：按钮
 
 #### 示例：
+
 ```html
 <img src="image.jpg" style="display: inline-block; width: 100px; height: 100px;">
 ```
@@ -316,21 +334,20 @@ HTML 中的元素可以根据其显示特性分为 **行内元素**（inline ele
 
 HTML语义化就是用合理、正确的标签来展示内容。采用 DIV+CSS 布局我们的页面不仅使我们的文档结构不够清晰，而且不利于浏览器对页面的读取。语义化标签也能让浏览器更好的读取页面结构。再就是便于团队开发和维护，语义化更具可读性，遵循 W3C 标准的团队都遵循这个标准，可以减少差异化。
 
-HTML语义化的好处
+HTML语义化的好处：
 
 + 去掉或者丢失样式的时候能够让页面呈现出清晰的结构；
 + 有利于 SEO ：和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息：爬虫依赖于标签来确定上下文和各个关键字的权重；
 + 方便其他设备解析(如屏幕阅读器、盲人阅读器、移动设备)以意义的方式来渲染网页；
 + 便于团队开发和维护，语义化更具可读性，遵循W3C标准，可以减少差异化。
 
-常见的语义化标签有：
-
 HTML 语义化是指在网页结构中使用具有语义意义的标签，以使网页的内容和结构更加清晰，便于浏览器、开发者以及搜索引擎理解网页内容。语义化标签描述了它们包含的内容，而不仅仅是页面的呈现方式。这不仅有助于 SEO（搜索引擎优化）和可访问性（Accessibility），还可以提高代码的可维护性和可读性。
 
 
-### 常见的语义化标签
+### 常见的语义化标签  <Badge type="tip">次要</Badge>
 
 #### 1. **`<header>`**
+
 - **作用**：定义页面或某个部分的头部，通常包含导航栏、标题、logo等。
 - **示例**：
     ```html
@@ -341,6 +358,7 @@ HTML 语义化是指在网页结构中使用具有语义意义的标签，以使
     ```
 
 #### 2. **`<nav>`**
+
 - **作用**：表示导航栏，包含页面内的导航链接。
 - **示例**：
     ```html
@@ -354,6 +372,7 @@ HTML 语义化是指在网页结构中使用具有语义意义的标签，以使
     ```
 
 #### 3. **`<main>`**
+
 - **作用**：页面的主要内容区域。一个文档中只能有一个 `<main>`，它包含文档中与核心内容相关的部分。
 - **示例**：
     ```html
@@ -366,6 +385,7 @@ HTML 语义化是指在网页结构中使用具有语义意义的标签，以使
     ```
 
 #### 4. **`<article>`**
+
 - **作用**：表示页面中独立的内容块，比如博客文章、新闻条目等。
 - **示例**：
     ```html
@@ -376,6 +396,7 @@ HTML 语义化是指在网页结构中使用具有语义意义的标签，以使
     ```
 
 #### 5. **`<section>`**
+
 - **作用**：表示文档中具有逻辑上相关内容的区域，通常包含一个主题的内容块。每个 `<section>` 块应有标题。
 - **示例**：
     ```html
@@ -386,6 +407,7 @@ HTML 语义化是指在网页结构中使用具有语义意义的标签，以使
     ```
 
 #### 6. **`<footer>`**
+
 - **作用**：定义页面或某个部分的底部区域，通常包含版权声明、联系信息等。
 - **示例**：
     ```html
@@ -396,6 +418,7 @@ HTML 语义化是指在网页结构中使用具有语义意义的标签，以使
     ```
 
 #### 7. **`<aside>`**
+
 - **作用**：表示和主要内容相关的侧边内容，如侧边栏、广告、引用等。
 - **示例**：
     ```html
@@ -409,6 +432,7 @@ HTML 语义化是指在网页结构中使用具有语义意义的标签，以使
     ```
 
 #### 8. **`<figure>` 与 `<figcaption>`**
+
 - **作用**：`<figure>` 用于包含独立的内容元素，比如图片、表格、图表，`<figcaption>` 为其提供描述。
 - **示例**：
     ```html
@@ -419,6 +443,7 @@ HTML 语义化是指在网页结构中使用具有语义意义的标签，以使
     ```
 
 ### 非语义化标签的替换
+
 在没有 HTML5 语义化标签时，开发者常常使用一些非语义化的标签如 `<div>` 和 `<span>` 来进行布局。虽然这些标签可以实现相同的效果，但它们没有任何语义意义。通过使用语义化标签，可以让代码结构更清晰。
 
 - **非语义化的示例**：
@@ -438,10 +463,11 @@ HTML 语义化是指在网页结构中使用具有语义意义的标签，以使
     ```
 
 
-## 一些高级 HTML 标签 <Badge type="danger">较难</Badge>
+## 更进一步...... <Badge type="warning">偏难</Badge>
 
-[参考链接](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element)
+注意：本环节稍有难度，可根据自身情况选择进行。
 
-注意：本部分知识稍有难度，可根据自身情况选择学习。
+下列环节可由浅入深研究：
 
-MDN Web Docs 中的 HTML 元素介绍：https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element ；
+- 更详细的 HTML 元素介绍：[MDN Web Docs 中的 HTML 元素介绍](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element) ；
+- 面向开发者的 Web 开发技术总览：https://developer.mozilla.org/zh-CN/docs/Web 。
