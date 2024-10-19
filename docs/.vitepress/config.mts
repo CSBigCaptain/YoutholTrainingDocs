@@ -42,18 +42,18 @@ export default defineConfig({
           text: "Level 3:",
           collapsed: true,
           items: [
-            { text: "服务器知识", link: "/training-plan/9-server" },
-            { text: "Python", link: "/training-plan/10-python" },
-            { text: "Django", link: "/training-plan/11-django" },
+            { text: "占位符", link: "/training-plan/9-server" },
+            { text: "占位符", link: "/training-plan/10-python" },
+            { text: "占位符", link: "/training-plan/11-django" },
           ],
         },
         {
           text: "Level 4:",
           collapsed: true,
           items: [
-            { text: "数据库", link: "/training-plan/12-database" },
-            { text: "MongoDB", link: "/training-plan/13-mongodb" },
-            { text: "React", link: "/training-plan/14-react" },
+            { text: "占位符", link: "/training-plan/12-database" },
+            { text: "占位符", link: "/training-plan/13-mongodb" },
+            { text: "占位符", link: "/training-plan/14-react" },
           ],
         },
       ],
@@ -61,15 +61,18 @@ export default defineConfig({
         { text: "本部分简介", link: "/advanced-tech/" },
         {
           text: "高级技巧",
-          collapsed: false,
           items: [
             {
-              text: "提高编写HTML代码效率的小技巧",
+              text: "HTML 速写",
               link: "/advanced-tech/effective-edit-html",
             },
             {
               text: "Markdown 基本语法",
               link: "/advanced-tech/markdown.md"
+            },
+            {
+              text: "Git 教学",
+              link: "/advanced-tech/git.md"
             }
           ],
         },

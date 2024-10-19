@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "YoutholTrainingDocs"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  # text: "A VitePress Site"
+  # tagline: My great project tagline
   actions:
     - theme: brand
       text: 开始学习
@@ -15,10 +15,10 @@ hero:
       link: /advanced-tech/
 
 features:
-  - title: What's youthol?
-    details: Youthol is the best student org in sdut.
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: What's Youthol?
+    details: Youthol is the best student organisation in Shandong University of Technology.
+  # - title: Feature B
+  #   details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  # - title: Feature C
+  #   details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
