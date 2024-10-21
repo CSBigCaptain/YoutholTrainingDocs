@@ -9,13 +9,13 @@ docs/
 ├── editor-guide.md
 ├── index.md
 └── training-plan
+    ├── 1.1-terminal.md
     ├── 1-basic.md
     ├── 2-html.md
     ├── 3-basic-css.md
     ├── 4-advanced-css.md
     ├── 5-javascript.md
     ├── 6-vue.md
-    ├── 7-terminal.md
     ├── assets
     │   ├── 1
     │   │   ├── extensions-in-vscode.png
