@@ -166,18 +166,118 @@ IE 怪异盒子模型是比较常用的盒子模型，因为大多数情况下�
 
 ### 弹性布局
 
-#### 弹性布局是什么？
-
 弹性布局就像是盒子里的弹簧，可以帮助你轻松地安排盒子里的内容，无论是水平排列还是垂直排列，或者是在屏幕大小改变时自动调整大小。
 #### 弹性布局的基本步骤
 
 - 变成弹性盒子：首先，你需要把你的盒子（比如一个div）变成一个弹性盒子。这只需要在CSS中添加一行代码：display: flex;。
 - 安排内容：在你的弹性盒子里，你可以放很多小盒子（div），它们会自动按照你设置的规则排列。
 
-#### 为什么要使用弹性盒子
+#### 关于弹性布局
+
+- 主轴：主轴是Flex容器中的主要方向，可以是水平的（row或row-reverse）或垂直的（column或column-reverse）。项目的默认排列方向就是沿着主轴。
+- 交叉轴：交叉轴是垂直于主轴的轴。项目的对齐和分布也会参考交叉轴。其起点（cross start）和终点（cross end），这取决于主轴的方向。
+- 主轴大小：主轴大小是指项目在主轴上所占的空间。对于水平排列的项目，主轴大小通常是指项目的高度；对于垂直排列的项目，则是指项目的宽度。
+- 交叉轴大小：交叉轴大小是指项目在交叉轴上所占的空间。对于水平排列的项目，交叉轴大小是指项目的宽度；对于垂直排列的项目，则是指项目的高度。
+
+##### 容器属性
+
+display
+
+```css
+.container {
+  display: flex; /* 或者 inline-flex */
+}
+```
+这个属性将一个元素定义为Flex容器。flex会使得容器的子元素表现为块级元素。（而inline-flex则会让容器的子元素表现为行内块级元素）。
+
+flex-direction
+
+```css
+.container {
+  flex-direction: row | row-reverse | column | column-reverse;
+}
+```
+这个属性定义了主轴的方向，决定了项目的排列方向。
+
+  - row：主轴为水平方向，起点在左端。
+  - row-reverse：主轴为水平方向，起点在右端。
+  - column：主轴为垂直方向，起点在上沿。
+  - column-reverse：主轴为垂直方向，起点在下沿。
+
+flex-wrap
+
+```css
+.container {
+  flex-wrap: nowrap | wrap | wrap-reverse;
+}
+```
+这个属性定义了当容器内项目无法全部放入一行或一列时，是否允许换行，以及换行的显示方式。
+
+  - nowrap：不换行，所有项目在一行或一列内显示。
+  - wrap：允许换行，新的一行或一列从上方开始。
+  - wrap-reverse：允许换行，新的一行或一列从下方开始。
+
+justify-content
+
+```css
+.container {
+  justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;
+}
+```
+这个属性定义了项目在主轴上的对齐方式。
+
+  - flex-start：项目向主轴的起点对齐。
+  - flex-end：项目向主轴的终点对齐。
+  - center：项目在主轴上居中对齐。
+  - space-between：项目在主轴上均匀分布，两端对齐。
+  - space-around：项目在主轴上均匀分布，每个项目两侧的间隔相等。
+  - space-evenly：项目在主轴上均匀分布，包括与容器边缘的间隔。
+
+align-items
+
+```css
+.container {
+  align-items: flex-start | flex-end | center | baseline | stretch;
+}
+```
+这个属性定义了项目在交叉轴上的对齐方式。
+
+  - flex-start：项目向交叉轴的起点对齐。
+  - flex-end：项目向交叉轴的终点对齐。
+  - center：项目在交叉轴上居中对齐。
+  - baseline：项目在交叉轴上以基线对齐。
+  - stretch：如果项目未设置高度或设为auto，将占满整个容器的高度。
+
+align-content
+
+```css
+.container {
+  align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+}
+```
+align-content属性，适用于容器内有多行或多列项目的情况。
+
+  - flex-start：项目向交叉轴的起点对齐。
+  - flex-end：项目向交叉轴的终点对齐。
+  - center：项目在交叉轴上居中对齐。
+  - space-between：轴线在交叉轴上均匀分布，两端对齐。
+  - space-around：轴线在交叉轴上均匀分布，每个轴线两侧的间隔相等。
+  - stretch：如果项目未设置高度或设为auto，将占满整个容器的高度。
+
+##### 项目属性
+
+- order：定义项目的排列顺序，数值越小，排列越靠前。
+- flex-grow：定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+- flex-shrink：定义项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+- flex-basis：定义项目在分配多余空间之前的初始大小，默认为auto。
+- flex：是flex-grow、flex-shrink和flex-basis的简写，默认值为0 1 auto。
+- align-self：允许单个项目有与其他项目不一样的交叉轴对齐方式。
+
+#### 如何使用弹性盒子
 - 水平排列：默认情况下，项目会水平排列。如果你想要改变方向，可以添加flex-direction: column;，这样项目就会垂直排列了。
 - 主轴居中：如果你想要项目在盒子里水平或垂直居中，可以使用justify-content: center;。
-- 交叉轴居中：如果你想要项目在盒子的另一端居中，可以使用align-items: center;。
+- 交叉轴居中：如果你想要项目在盒子的另一端居中，可以使用align-items: center;
+- ......
 
 下面是一个例子
 ```css
