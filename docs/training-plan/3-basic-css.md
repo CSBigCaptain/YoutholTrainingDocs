@@ -9,7 +9,7 @@
 
 ---
 
-如果说 **HTML** 是整个网页的骨架，那么 **CSS** 就是整个网页的皮囊，可以让我们的网页更美观。
+如果说 **HTML** 是整个网页的骨架，那么 **CSS** 就是整个网页的脸皮嘴鼻子肉，可以让我们的网页更美观。
 
 - CSS 负责包括网页的外在样式、颜色、布局等的表现。
 - CSS 文件后缀是 `.css`。
@@ -22,7 +22,7 @@
 将元素的 CSS 属性直接写到 `style` 属性中，这是一段用了内联样式的 HTML 代码：
 
 ```html
-<span style='color:red'>这是一个代码</span>
+<span style="color:red">这是一个代码</span>
 ```
 
 这样这个 `<span>` 标签中的文字就会变成红色。
@@ -39,14 +39,12 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-        
-    </style>
-</head>
+    <style></style>
+  </head>
 </html>
 ```
 
@@ -57,29 +55,29 @@
 这个方法比较常用，我们直接单独新建一个 CSS 文件，之后在 HTML 里面用 `<link>` 标签来引入 CSS 文件。例如：
 
 ```html
-<link rel="stylesheet" href="你创建的css文件名字.css">
+<link rel="stylesheet" href="你创建的css文件名字.css" />
 ```
 
 为使用规范，一般写网页时都会对相应文件创建文件夹来方便使用，如 CSS 文件夹，JavaScript 文件夹等，之后布置作业时会讲具体文件规范。此时引用为：
 
 ```html
-<link rel="stylesheet" href="css/你创建的css文件名字.css">
+<link rel="stylesheet" href="css/你创建的css文件名字.css" />
 ```
 
 其优点是可以同时修改页面内所有相同标签的样式且可一应用到多个网页中
 
-## CSS基本语法
+## CSS 基本语法
 
-CSS基本语法包括选择器和声明块两种，见下面的示例代码：
+CSS 基本语法包括选择器和声明块两种，见下面的示例代码：
 
 ```css
 p {
-    color: red;
-    font-size: 23px;
+  color: red;
+  font-size: 23px;
 }
 ```
 
-其中的 `p` 就是选择器（选中了网页中所有的 `<p>` 元素），而大括号里面的就是声明块，其中包含了各种属性。  
+其中的 `p` 就是选择器（选中了网页中所有的 `<p>` 元素），而大括号里面的就是声明块，其中包含了各种属性。
 
 ## CSS 基本选择器
 
@@ -104,13 +102,12 @@ p {
 在后面我们会介绍更多的选择器，来看下面这个例子：
 
 ```html
-<span id="first">第一个</span>
-<span class="second">第二个</span>
+<span id="first">第一个</span> <span class="second">第二个</span>
 ```
 
 此时当用基本选择器 `span {}` 表示同时会改变两个；如果用 ID 选择器 `#first {}` 则只会改变第一个；如果用类选择器 `.second {}` 就只会改变第二个。
 
-## CSS基本属性
+## CSS 基本属性
 
 - 宽度：`width`
 - 高度：`height`
@@ -122,9 +119,9 @@ p {
 - 外边距：`margin`
 - ......（这些只是列出了一些常用的基本属性，之后会接触到更多的属性）
 
-## CSS基本布局
+## CSS 基本布局
 
-在CSS中存在很多布局方式，在这里我们先学习最简单也是最常用最好用的一种布局——弹性布局。
+在 CSS 中存在很多布局方式，在这里我们先学习最简单也是最常用最好用的一种布局——弹性布局。
 
 在介绍布局之前要引出一个很重要的模型——盒子模型。
 
@@ -156,9 +153,9 @@ IE 怪异盒子模型是比较常用的盒子模型，因为大多数情况下�
 // CSS 的注释太折磨了，所以用 less 来演示吧
 
 * {
-    box-sizing: content-box;      // 浏览器默认的标准盒子模型
-    //box-sizing: border-box;        IE 怪异盒子模型
-    //box-sizing: inherit;           继承父元素
+  box-sizing: content-box; // 浏览器默认的标准盒子模型
+  //box-sizing: border-box;        IE 怪异盒子模型
+  //box-sizing: inherit;           继承父元素
 }
 ```
 
@@ -169,17 +166,20 @@ IE 怪异盒子模型是比较常用的盒子模型，因为大多数情况下�
 #### 弹性布局是什么？
 
 弹性布局就像是盒子里的弹簧，可以帮助你轻松地安排盒子里的内容，无论是水平排列还是垂直排列，或者是在屏幕大小改变时自动调整大小。
+
 #### 弹性布局的基本步骤
 
-- 变成弹性盒子：首先，你需要把你的盒子（比如一个div）变成一个弹性盒子。这只需要在CSS中添加一行代码：display: flex;。
-- 安排内容：在你的弹性盒子里，你可以放很多小盒子（div），它们会自动按照你设置的规则排列。
+- 变成弹性盒子：首先，你需要把你的盒子（比如一个 `div`）变成一个弹性盒子。这只需要在 CSS 中添加一行代码：`display: flex`;。
+- 安排内容：在你的弹性盒子里，你可以放很多小盒子（`div`），它们会自动按照你设置的规则排列。
 
 #### 为什么要使用弹性盒子
-- 水平排列：默认情况下，项目会水平排列。如果你想要改变方向，可以添加flex-direction: column;，这样项目就会垂直排列了。
-- 主轴居中：如果你想要项目在盒子里水平或垂直居中，可以使用justify-content: center;。
-- 交叉轴居中：如果你想要项目在盒子的另一端居中，可以使用align-items: center;。
+
+- 水平排列：默认情况下，项目会水平排列。如果你想要改变方向，可以添加 `flex-direction: column`;，这样项目就会垂直排列了。
+- 主轴居中：如果你想要项目在盒子里水平或垂直居中，可以使用 `justify-content: center`;。
+- 交叉轴居中：如果你想要项目在盒子的另一端居中，可以使用 `align-items: center`;。
 
 下面是一个例子
+
 ```css
 .flex-container {
   display: flex;
@@ -194,6 +194,7 @@ IE 怪异盒子模型是比较常用的盒子模型，因为大多数情况下�
   flex: 1; /* 项目可以放大也可以缩小 */
 }
 ```
+
 ```html
 <div class="flex-container">
   <div class="flex-item">项目1</div>
@@ -201,6 +202,7 @@ IE 怪异盒子模型是比较常用的盒子模型，因为大多数情况下�
   <div class="flex-item">项目3</div>
 </div>
 ```
-在这个例子中，.flex-container是一个弹性盒子，里面的.flex-item是项目。项目会自动水平和垂直居中，并且它们的大小会根据容器的大小自动调整。
+
+在这个例子中，`.flex-container` 是一个弹性盒子，里面的 `.flex-item` 是项目。项目会自动水平和垂直居中，并且它们的大小会根据容器的大小自动调整。
 
 弹性布局就像是有弹性的弹簧，可以帮助你轻松地安排和调整盒子里的内容，非常的实用。总之，弹性盒子是非常有用的，快来动手试一试吧！
