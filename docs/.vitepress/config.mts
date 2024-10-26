@@ -43,8 +43,8 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: "占位符", link: "/training-plan/9-server" },
-            { text: "占位符", link: "/training-plan/10-python" },
-            { text: "占位符", link: "/training-plan/11-django" },
+            { text: "Python学习", link: "/training-plan/12-Py" },
+            { text: "后端基础知识", link: "/training-plan/13-backend" },
           ],
         },
       ],
