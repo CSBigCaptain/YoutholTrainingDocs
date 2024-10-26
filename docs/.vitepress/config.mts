@@ -24,6 +24,7 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: "入门知识", link: "/training-plan/1-basic" },
+            { text: "命令行基础", link: "/training-plan/1.1-terminal" },
             { text: "HTML知识", link: "/training-plan/2-html" },
             { text: "CSS入门知识", link: "/training-plan/3-basic-css" },
             { text: "CSS进阶", link: "/training-plan/4-advanced-css" },
