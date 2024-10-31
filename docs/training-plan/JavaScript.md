@@ -105,17 +105,17 @@ console.log(str.length) // 13
 
 #### 转义字符
 
-| 代码  | 输出        |
-| :---- | :---------- |
-| \'    | 单引号      |
-| \"    | 双引号      |
-| \\    | 反斜杠      |
-| \n    | 换行        |
-| \r    | 回车        |
-| \t    | tab(制表符) |
-| \b    | 退格符      |
-| \f    | 换页符      |
-| \\`   | \`         |
+| 代码 | 输出        |
+| :--- | :---------- |
+| \'   | 单引号      |
+| \"   | 双引号      |
+| \\   | 反斜杠      |
+| \n   | 换行        |
+| \r   | 回车        |
+| \t   | tab(制表符) |
+| \b   | 退格符      |
+| \f   | 换页符      |
+| \\`  | \`          |
 
 #### 模板字符串
 
@@ -288,7 +288,267 @@ label: {
 }
 ```
 
-break 不仅可以中断循环，也可以直接中断代码块，但是 continue 只能用在循环内
+`break` 不仅可以中断循环，也可以直接中断代码块，但是 `continue` 只能用在循环内。
+
+## ECMAScript 6 新特性
+
+为什么要对这个版本单独开设一个章节呢？因为 ES6 的一些特性在后面 [Vue.js](./Vue.md) 章节中至关重要，因此特此提及。
+
+### 箭头函数
+
+箭头函数代码更简洁而且也更安全，此后应该尽可能的使用箭头函数。
+
+箭头函数的书写也很简单，如下所示，如果函数表达式只有一行，那么不需要花括号包裹表达式：
+
+```js
+const addNumber = (a, b) => a + b
+
+const addAndPrintNumber = (a, b) => {
+  console.log(a + b)
+  return a + b
+}
+```
+
+### 解构赋值
+
+在 JavaScript 中，解构可以快速将数组中的值或者对象取出并赋值给相应的变量，在阅读文档时经常会见到此类代码。
+
+#### a. 对象解构
+
+> [查看原文](https://segmentfault.com/a/1190000019923707)，已按照其[《署名-非商业性使用-禁止演绎 4.0 国际》](https://creativecommons.org/licenses/by-nc-nd/4.0/)许可使用。
+
+我们首先来介绍一下对象的解构：
+
+##### 1. 解构式变量声明
+
+```js
+let node = {
+  name: "mike",
+  age: 25,
+}
+let { name, age } = node
+console.log(name) //mike
+console.log(age) //25
+```
+
+##### 2. 解构出数据为变量赋值
+
+```js:line-numbers {5}
+let node = {
+  name: "mike",
+  age: 25,
+}
+;({ name, age } = node)
+console.log(name) //mike
+console.log(age) //25
+```
+
+> [!WARNING]
+> 一定要用一对小括号 `()` 包裹整个解构赋值表达式。
+
+> [!CAUTION]
+> 示例代码中第四行和第五行代码之间的分号不可省略！
+>
+> JavaScript 解析器在解析代码时会自动根据回车分隔代码，但是如果两行代码拼到一起语法没有错误，解析器会将两行代码视为一行代码编译，因此需用分号强行分隔。
+
+##### 3. 解构时设置默认值
+
+如果我们在解构声明变量时，定义了对象中不存在的属性，那么这个变量的值为 `undefined` 。我们可以给变量设置默认值，当对象中没有对应的属性时，这个变量的值就是设置的默认值。
+
+```js
+let node = {
+  name: "mike",
+  age: 25,
+}
+let { name, age, country = "China" } = node
+console.log(name) // mike
+console.log(age) // 25
+console.log(country) // China
+```
+
+在前面的例子里，我们的变量名都是和对象的属性名一样的。当然，也有办法定义不同命中的变量，依然利用解构获得对象的属性值。
+
+##### 4. 解构时赋予不同的变量名
+
+有时候我们需要为解构出来的变量起一个单独的变量名，请见下例：
+
+```js
+let node = {
+  name: "mike",
+  age: 25,
+}
+let { name: localName, age, country: localCountry = "China" } = node
+console.log(localName) //mike
+console.log(age) // 25
+console.log(localCountry) //China
+```
+
+这里需要注意的是，冒号左边的是对象的属性名，右边的是我们新定义的变量名，这一点与我们的认知和习惯恰好反过来了。
+
+我们在这种场景下也可以给变量设置默认值，就像上面的 `localCountry` 变量那样做：`:` 左边是对象的属性名，右边是一个赋值表达式; 这个表达式 `=` 左边是变量名，右边是默认值。
+
+##### 5. 解构嵌套的对象
+
+前面我们所有的例子，被解构的对象都是单层解构，接下来我们看看多层对象(嵌套对象)的解构：
+
+```js
+let node = {
+  personalInfo: {
+    basicInfo: {
+      name: "mike",
+      age: 25,
+    },
+  },
+  level: 3,
+}
+let {
+  personalInfo: { basicInfo },
+} = node
+console.log(basicInfo.name) // mike
+```
+
+上面代码的倒数第二行，我们初始化的变量为 `basicInfo`，而不是 `personalInfo`，这一点要特别注意。`personalInfo` 只是用来指明 `basicInfo` 的父节点。
+
+嵌套对象的解构的语法就是：从原对象的最外层变量定位，一直到需要取值的那一层，每层之间用冒号 `:` 隔开，变量在冒号的右边。我们在上面的例子机场上，再增加一层：
+
+```js
+let node = {
+  personalInfo: {
+    basicInfo: {
+      name: {
+        firstName: "mike",
+        lastName: "deep",
+      },
+      age: 25,
+    },
+  },
+  level: 3,
+}
+let {
+  personalInfo: {
+    basicInfo: { name },
+  },
+} = node
+console.log(name.firstName) // mike
+```
+
+#### b. 数组解构
+
+> [查看原文](https://segmentfault.com/a/1190000019928303)，已按照其[《署名-非商业性使用-禁止演绎 4.0 国际》](https://creativecommons.org/licenses/by-nc-nd/4.0/)许可使用。
+
+解构不仅可以用于对象类型，还可以用于数组。对象的解构是利用对象的属性名，而数组的解构是利用位置（坐标）的一一对应。
+
+##### 1: 数组解构用于变量声明
+
+```js
+let color = ["red", "green", "blue"]
+let [firstColor, secondColor] = color
+console.log(firstColor) //red
+console.log(secondColor) //green
+```
+
+`let/const/var` 后面跟上一对用中括号[]包裹的变量列表，变量的值为对应位置上的素组元素的值。
+
+假如我们不想数组前面坐标的数据，而是想要中间位置，或者最后位置的，那么前面位置上的每一个元素留空，用逗号相隔就行了：
+
+```js
+let color = ["red", "green", "blue"]
+let [, , thirdColor] = color
+console.log(thirdColor) // blue
+```
+
+##### 2: 数组解构用于变量赋值
+
+```js
+let color = ["red", "green", "blue"]
+firstColor = "white"
+secondColor = "black"
+
+;[firstColor, secondColor] = color
+
+console.log(firstColor) //red
+console.log(secondColor) //green
+```
+
+已经被初始化了的变量 `firstColor` 和 `secondColor` 通过数组解构重新被赋值。数组解构赋值的语法和用于变量声明很像，只是不再需要 `let/const/var`， 整个解构赋值语句也不需要用 `()` 包裹，这一点和对象的解构赋值不一样。
+
+##### 3. 嵌套数组（多维数组）的解构
+
+前面的例子都是一维数组，我们来看看嵌套数组（多维数组）的解构：
+
+```js
+let color = ["red", ["white", "black"], "green", "blue"]
+
+let [firstColor, secondColor] = color
+let [, [firstChildColor]] = color
+
+console.log(secondColor) //["white", "black"]
+console.log(firstChildColor) //white
+```
+
+`color` 变量是一个嵌套数组，它的第二个元素又是一个一维数组，所以代码的第二行我们解构出 `secondColor` 变量，它是一个一位数组（倒数第二行代码打印结果）。
+
+而当我们在 `color` 变量的第二个元素位置先用一层中括号包裹一个变量（这里的 `firstChildColor`），那就说明我们解构的是`white`这个值了。其实这语法大家用逻辑去想就是恨自然而简单的。
+
+##### 4. 不定元素（剩余元素）
+
+函数有不定参数，在数组解构这里有个类似的概念：不定元素（或者叫剩余元素）。它就是用 `...` 展开运算符把数组的多个元素一起赋值给一个变量：
+
+```js
+let color = ["red", "green", "blue"]
+let [firstColor, ...secondColor] = color
+console.log(firstColor) //red
+console.log(secondColor) //['green', 'blue']
+```
+
+这里需要特别注意的是不定元素变量（剩余元素变量）必须是解构的最后一个变量，其后面不能再有别的变量，否则会抛出语法错误，例如：
+
+```js
+let color = ['red', 'green', 'blue'];
+let [firstColor, ...secondColor, error] = color; // Uncaught SyntaxError: Rest element must be last element
+```
+
+既然剩余元素可以是数组的最后几个元素，那它当然也可以是数组的全部元素。我们可以利用这点来实现数组的 copy：
+
+```JavaScript
+let color = ['red', 'green', 'blue'];
+let [...copiedColor] = color;
+console.log(copiedColor);// ["red", "green", "blue"]
+console.log(color.toString() === copiedColor.toString()); // true
+console.log(color == copiedColor); // false
+console.log(color === copiedColor); // fasle
+```
+
+这里也要特别注意，剩余元素变量只是把数组元素 copy 到另一个数组，所以它们包含的元素相等，但是这 2 个数组是没有关系的，是不相等的。
+
+##### 5. 对象和数组的混合解构
+
+解构可以用在对象和数组，前面我们所有的例子都是单独的对象和数组，接下来我们来看看在一个混合和数组和对象的例子：
+
+```js
+let node = {
+  personalInfo: {
+    basicInfo: {
+      name: {
+        firstName: "mike",
+        lastName: "deep",
+      },
+    },
+  },
+  levelRange: [1, 3],
+}
+let {
+  personalInfo: {
+    basicInfo: { name },
+  },
+  levelRange: [lowLevel],
+} = node
+
+console.log(name.firstName) // mike
+console.log(lowLevel) // 1
+```
+
+其实混合解构和单独的对象解构和数组解构是一样的，对象的地方就用对象解构的语法，数组的地方就用数组解构的语法就对了。
 
 ## JavaScript 中的 this
 
@@ -301,11 +561,14 @@ break 不仅可以中断循环，也可以直接中断代码块，但是 continu
 - 在函数中，this 表示全局对象（应该是函数的所有者）。
 - 在事件中，this 表示接收事件的元素。
 
-## JavaScript HTML DOM
+## JavaScript HTML DOM <Badge type="tip">选择性阅读</Badge>
 
-通过 HTML DOM，JavaScript 获得了访问 HTML 元素的功能
+通过 HTML DOM，JavaScript 获得了访问 HTML 元素的功能。
 
-## HTML DOM
+> [!tip]
+> 未来我们主要使用 Vue.js 等一些 JavaScript 框架来进行 Web 应用开发，因此此部分的理解不做要求。
+
+### HTML DOM
 
 当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。
 
@@ -318,22 +581,22 @@ break 不仅可以中断循环，也可以直接中断代码块，但是 continu
 - JavaScript 能够改变页面中的所有 CSS 样式
 - JavaScript 能够对页面中的所有事件做出反应
 
-## 查找 HTML 元素
+### 查找 HTML 元素
 
-### 通过元素 ID
+#### 通过元素 ID
 
 ```js
 const x = document.getElementById("id")
 ```
 
-### 通过标签名
+#### 通过标签名
 
 ```js
 const y = document.getElementById("id").getElementByTagName("a")
 // get到ID为id的元素下所有的a元素
 ```
 
-### 通过类名
+#### 通过类名
 
 ```js
 const z = document.getElementByClassName("class")
@@ -341,7 +604,7 @@ const z = document.getElementByClassName("class")
 
 如果查找到多个元素，则会返回一个类型为 htmlcollection 的数据，该类型不能使用列表的方法
 
-### 万金油
+#### 万金油
 
 ```js
 const theLetterAfterZ = document.querySelector(".class")
@@ -353,13 +616,13 @@ const theLetterAfterTheTitleAfterZ = document.querySelecorAll(".class")
 
 大部分浏览器的 querySelectorAll() 返回 NodeList 对象。
 
-## 改变 HTML
+### 改变 HTML
 
-### 更改内容
+#### 更改内容
 
 更改 DOM 对象的 `innerHTML` 属性
 
-### 更改属性
+#### 更改属性
 
 更改 DOM 对象中对应属性既可
 
@@ -371,7 +634,7 @@ document.getElementByTagName("img").src = `./img.jpg`
 // 更改了img元素的src属性
 ```
 
-### 更改样式
+#### 更改样式
 
 更改 DOM 对象的 `style` 属性内的子属性
 
@@ -380,7 +643,7 @@ document.getElementById("id").style.color = "white"
 // 修改颜色
 ```
 
-## 事件
+### 事件
 
 例子：
 
@@ -392,7 +655,7 @@ document.getElementById("id").style.color = "white"
 - 当提交 HTML 表单时
 - 当用户触发按键时
 
-### HTML 事件属性
+#### HTML 事件属性
 
 - `onclick`: 点击元素
 - `onload` 和 `onunload`: 元素加载完成时和元素被销毁时
@@ -400,7 +663,7 @@ document.getElementById("id").style.color = "white"
 - `onmouseover` 和 `onmouseout`: 鼠标放在元素内和鼠标放在元素外时分别触发
 - `onmousedown`、`onmouseup`: 鼠标按下和鼠标松开时分别触发
 
-### 事件监听
+#### 事件监听
 
 使用 addEventListener 方法
 
@@ -408,4 +671,3 @@ document.getElementById("id").style.color = "white"
 const a = document.getElementById("id").addEventListener("click", () => 2)
 a.removeEventListener("click", () => 2) // 移除事件监听器
 ```
-
