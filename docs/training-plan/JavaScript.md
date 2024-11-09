@@ -1,5 +1,11 @@
 # JavaScript 基础知识
 
+通过本章节，你将学会：
+
+1. JavaScript 基础知识
+1. 一些 JavaScript 新规范
+1. 为下一章节 Vue.js 的学习奠基
+
 ## 简介
 
 - JavaScript 和 Java 是两门完全不同的编程语言。
@@ -54,11 +60,15 @@ JavaScript 已经由 ECMA（欧洲电脑制造商协会）通过 ECMAScript 实�
 // 这是一个注释
 
 /* 这也是个注释 */
+
+/**
+ * 这是 JSDoc 注释
+ */
 ```
 
 ### JavaScript 一个饱受争议的机制
 
-JavaScript 在运算时会尝试自动转换数据类型以完成运算，这很显然是一把双刃剑，后来微软推出的 Typescript 解决了此问题。
+JavaScript 在运算时会尝试自动转换数据类型以完成运算，这很显然是一把双刃剑，后来微软推出的 TypeScript 解决了此问题。
 
 ```js
 console.log("a" + 123) // 'a123'
@@ -154,8 +164,6 @@ const functions = {
   },
 }
 ```
-
-注意：定义数组和对象时，最后一个元素后面不应该加逗号，否则可能会引起一些问题，比如在 get 元素数量时可能会多一个，具体取决于平台
 
 ### Undefined 和 Null
 
@@ -286,9 +294,9 @@ label: {
 
 `break` 不仅可以中断循环，也可以直接中断代码块，但是 `continue` 只能用在循环内。
 
-## ECMAScript 6 新特性
+## JavaScript 新特性
 
-为什么要对这个版本单独开设一个章节呢？因为 ES6 的一些特性在后面 [Vue.js](./Vue.md) 章节中至关重要，因此特此提及。
+为什么要对新特性开设一个章节呢？这些新特性令人耳目一新，而且一些特性在后面 [Vue.js](./Vue.md) 章节中至关重要，因此特此提及。
 
 ### 箭头函数
 
@@ -587,7 +595,7 @@ import * as all from "/src/modules/module"
 在一些模块系统（比如 Vite）可以省略文件扩展名，详见第三个 `import` 。
 
 > [!important]
-> 如果你通过本地 HTML 文件加载模块，出于 JavaScript 模块安全性需要，你将会遇到 CORS 错误。你需要一个服务器来加载，VS Code 中的 Live Server 扩展或者 Live Preview 扩展即可，也可以试着使用 Windows 自带的 IIS。
+> 如果你通过本地 HTML 文件加载模块，出于 JavaScript 模块安全性需要，你将会遇到 CORS 错误。由于安全原因，ES 模块只能通过 `http://` 协议工作，也即是浏览器在打开网页时使用的协议。为了使 ES 模块在我们的本地机器上工作，我们需要使用本地的 HTTP 服务器，通过 `http://` 协议来提供 index.html，VS Code 中的 Live Server 扩展或者 Live Preview 扩展都是可以的。
 
 > [!tip]
 > ES Module 规范的代码均实行 JavaScript 严格模式，即使没有 `use strict` 声明。
@@ -634,6 +642,42 @@ export default {
   import { num, add } from "/src/modules/module.js"
 </script>
 ```
+
+### 立即调用函数表达式（IIFE）
+
+IIFE 是一个在定义完成后就会立即执行的函数。
+
+IIFE 主要有两部分组成：
+
+- 第一部分是一个由圆括号包裹的函数，这个函数可以是匿名函数，也可以是异步函数
+- 第二部分是一个圆括号，圆括号里面填写传入函数的参数
+
+请见此例：
+
+```js
+const [a, b] = [100, 200]
+
+module = ((exports) => {
+  const a = 100
+  const b = 200
+  const c = 400
+
+  exports.a = 150
+  exports.b = 300
+  return exports
+})({})
+
+const { a: moduleA, b: moduleB } = module
+
+console.log(a, b) // 100 200
+console.log(moduleA, moduleB) // 150 300
+```
+
+我们先来介绍这个匿名函数：这个匿名函数接受一个参数 `exports`，此后返回一个包含了 `a` 和 `b` 两个属性的对象。函数内部有与函数外部重名的 `a` 和 `b` 两个变量，它们被隔离在了函数内部，避免了一定程度上的变量污染。很显然 `exports` 属性是一个对象，因此此函数接受一个对象作为参数，返回的是一个多了 `a` 和 `b` 两个属性的对象。
+
+接下来介绍为 `module` 变量赋值操作这一部分：等号右侧是一个 IIFE，后面的圆括号传入了一个空对象（不能什么也不传，显然会报错），最终此匿名函数执行，返回了一个对象并解构赋值给了 `module` 变量。
+
+此 IIFE 实现了类似于 ES 模块的效果，这是针对不支持 ESM 的浏览器的一个替代方法，尽管现代浏览器都已支持 ESM 规范。
 
 ## JavaScript 中的 this
 
