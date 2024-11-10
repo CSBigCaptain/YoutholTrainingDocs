@@ -95,8 +95,8 @@ console.log("123" === 123) // false
 - 布尔(Boolean)：类似 Python，有 `true` 和 `false`
 - 空(Null)
 - 未定义(Undefined)
-- Symble
-- 正则(RegExp)
+- 对象(Object)
+- 数组(Array)
 - 日期(Date)
 
 JavaScript 中，相同的变量可以有不同的数据类型（类似 Python）
