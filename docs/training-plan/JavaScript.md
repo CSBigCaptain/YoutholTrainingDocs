@@ -595,7 +595,7 @@ import * as all from "/src/modules/module"
 在一些模块系统（比如 Vite）可以省略文件扩展名，详见第三个 `import` 。
 
 > [!important]
-> 如果你通过本地 HTML 文件加载模块，出于 JavaScript 模块安全性需要，你将会遇到 CORS 错误。由于安全原因，ES 模块只能通过 `http://` 协议工作，也即是浏览器在打开网页时使用的协议。为了使 ES 模块在我们的本地机器上工作，我们需要使用本地的 HTTP 服务器，通过 `http://` 协议来提供 index.html，VS Code 中的 Live Server 扩展或者 Live Preview 扩展都是可以的。
+> 如果你通过本地 HTML 文件加载模块，出于 JavaScript 模块安全性需要，你将会遇到 CORS 错误。由于安全原因，ES 模块只能通过 `http://` 协议工作，也即是浏览器在打开网页时使用的协议。为了使 ES 模块在我们的本地机器上工作，我们需要使用本地的 HTTP 服务器，通过 `http://` 协议来提供 index.html。
 
 > [!tip]
 > ES Module 规范的代码均实行 JavaScript 严格模式，即使没有 `use strict` 声明。
