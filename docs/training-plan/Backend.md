@@ -229,7 +229,7 @@ app.run(port=5000)
   </div>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
 const temp = ref([])
@@ -238,6 +238,10 @@ async function getRecentContest() {
     const response = await axios.get(URL);
     temp.value = response.data;
 }
+
+onMounted(() => {
+    getRecentContest();
+})
 </script>
 ```
 
