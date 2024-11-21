@@ -212,6 +212,8 @@ def getRecentContest():
         if contest["source"] == "洛谷":
             realContests.append(contest)
     return jsonify(realContests)
+```
+```vue
 <template>
   <div>
      <div v-for="item in temp">
