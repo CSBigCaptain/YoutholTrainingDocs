@@ -160,6 +160,8 @@ app = Flask(__name__)
 @app.route("/sayhello")
 def hello_world():
     return "Hello, World!"
+
+app.run(port=5000)
 ```
 
 > 我们可以看到在Flask中创建API需要我们的一行代码：
@@ -212,6 +214,8 @@ def getRecentContest():
         if contest["source"] == "洛谷":
             realContests.append(contest)
     return jsonify(realContests)
+
+app.run(port=5000)
 ```
 ```vue
 <template>
