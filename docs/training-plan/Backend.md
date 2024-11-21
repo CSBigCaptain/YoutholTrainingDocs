@@ -105,7 +105,7 @@ print(list[0]["name"])
 ```
 
 我们通常使用Json格式来存储和传输数据。
-Json中的键值对类似于Python中的字典，但是Json中的键值对都是字符串。
+Json中的键值对类似于Python中的字典。
 Json中的列表和Python中的列表是一样的。
 
 
