@@ -113,7 +113,7 @@ Flask是一个Python的后端框架
 
 ## 安装Flask
 ```bash
-pip install flask
+pip install flask flask-cors
 ```
 
 ## 创建Flask项目
